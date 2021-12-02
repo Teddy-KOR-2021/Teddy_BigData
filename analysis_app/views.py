@@ -1,14 +1,14 @@
 from django.shortcuts import render
 from django.http import HttpResponse, JsonResponse
 from analysis_app.models import Sentiment
-from django.http import HttpResponse, HttpResponseRedirect
-import random
-import pandas as pd
-import matplotlib.pyplot as plt
-import seaborn as sns
+# from django.http import HttpResponse, HttpResponseRedirect
+# import random
+# import pandas as pd
+# import matplotlib.pyplot as plt
+# import seaborn as sns
 import json
 from django.core.serializers.json import DjangoJSONEncoder
-from datetime import datetime
+# from datetime import datetime
 
 def dg1(request) :
     return render(request, 'test1.html', None)
