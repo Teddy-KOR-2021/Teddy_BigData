@@ -1,0 +1,89 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+    <meta charset="UTF-8">
+</head>
+<body>
+    <div id="chartContainer" style="height: 300px; width: 100%;">
+    </div>
+    <script type="text/javascript">
+
+        window.onload = function () {
+
+            var dataPoints = [];
+            var dataPoints2 = [];
+
+            var chart = new CanvasJS.Chart("chartContainer",   {
+
+                exportEnabled: true,
+
+                title:{
+                    text: "아이 감정 상태"
+                },
+                 axisX: {
+                    valueFormatString: "DD MMM,YY"
+                },
+                axisY: {
+                    title: "sentiment",
+
+                },
+                legend:{
+                    cursor: "pointer",
+                    fontSize: 16,
+                },
+                toolTip:{
+                    shared: true
+                },
+
+                data: [  {
+                        name: "anger",
+                        type: "spline",
+                        color: "red",
+                        showInLegend: true,
+                        dataPoints: dataPoints
+                    },
+                    {
+                        name: "fear",
+                        type: "spline",
+                        color: "navy",
+                        showInLegend: true,
+                        dataPoints: dataPoints2
+
+                    }]
+                });
+            function getData() {
+                $.getJSON("http://localhost:8000/dg4data/")
+                    .then(function(data) {
+                        $.each(data, function(key, value){
+                            dataPoints.push({ x : new Date(value.x), y: value.y});
+                        });
+                        chart.render();
+                    })
+                $.getJSON("http://localhost:8000/dg4data2/")
+                    .then(function(dataa) {
+                        $.each(dataa, function(key, value){
+                            dataPoints2.push({ x : new Date(value.x), y: value.y});
+                        });
+                        chart.render();
+                    })
+            };
+        setTimeout(getData, 2000);
+    }
+
+function toggleDataSeries(e){
+	if (typeof(e.dataSeries.visible) === "undefined" || e.dataSeries.visible) {
+		e.dataSeries.visible = false;
+	}
+	else{
+		e.dataSeries.visible = true;
+	}
+	chart.render();
+}
+
+    </script>
+    <script type="text/javascript" src="https://canvasjs.com/assets/script/canvasjs.min.js"></script>
+    <script src="http://code.jquery.com/jquery-3.5.1.min.js"></script>
+</body>
+</html>
+
+
