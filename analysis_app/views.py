@@ -75,7 +75,7 @@ def dg3data(request) :
 def dg4(request) :
     return render(request, 'test4.html', None)
 
-def dg4data(request) :
+def dg4data1(request) :
     data = []
 
     data1 = [0.99816328, 0.00013168518, 0.00004901064, 0.0011716791, 0.00008148161, 0.00011483803, 0.000287909]
@@ -90,7 +90,7 @@ def dg4data(request) :
 
 def dg4data2(request) :
 
-    dataa = []
+    data = []
 
 
     data1 = [0.39816328, 0.00213168518, 0.01004901064, 0.2011716791, 0.30008148161, 0.00311483803, 0.090287909]
@@ -99,9 +99,88 @@ def dg4data2(request) :
              '2021, 10, 24', '2021, 10, 25', '2021, 10, 26']
 
     for i in range(len(data1)):
-        dataa.append({"x": date1[i], "y": data1[i]})
+        data.append({"x": date1[i], "y": data1[i]})
 
-    return JsonResponse(dataa, safe=False)
+    return JsonResponse(data, safe=False)
+
+
+def dg4data3(request) :
+
+    data = []
+
+
+    data1 = [0.09816328, 0.00213168518, 0.800410643, 0.2011716791, 0.30008148161, 0.00311483803, 0.090287909]
+
+    date1 = ['2021, 10, 20', '2021, 10, 21', '2021, 10, 22', '2021, 10, 23',
+             '2021, 10, 24', '2021, 10, 25', '2021, 10, 26']
+
+    for i in range(len(data1)):
+        data.append({"x": date1[i], "y": data1[i]})
+
+    return JsonResponse(data, safe=False)
+
+def dg4data4(request) :
+
+    data = []
+
+
+    data1 = [0.19816328, 0.0413168518, 0.1104901064, 0.2011716791, 0.2008148161, 0.81483803, 0.010287909]
+
+    date1 = ['2021, 10, 20', '2021, 10, 21', '2021, 10, 22', '2021, 10, 23',
+             '2021, 10, 24', '2021, 10, 25', '2021, 10, 26']
+
+    for i in range(len(data1)):
+        data.append({"x": date1[i], "y": data1[i]})
+
+    return JsonResponse(data, safe=False)
+
+def dg4data5(request) :
+
+    data = []
+
+
+    data1 = [0.09816328, 0.033168518, 0.05004901064, 0.911716791, 0.30008148161, 0.07311483803, 0.03187909]
+
+    date1 = ['2021, 10, 20', '2021, 10, 21', '2021, 10, 22', '2021, 10, 23',
+             '2021, 10, 24', '2021, 10, 25', '2021, 10, 26']
+
+    for i in range(len(data1)):
+        data.append({"x": date1[i], "y": data1[i]})
+
+    return JsonResponse(data, safe=False)
+
+def dg4data6(request) :
+
+    data = []
+
+
+    data1 = [0.39816328, 0.05213168518, 0.1004901064, 0.0011716791, 0.10008148161, 0.8411483803, 0.090287909]
+
+    date1 = ['2021, 10, 20', '2021, 10, 21', '2021, 10, 22', '2021, 10, 23',
+             '2021, 10, 24', '2021, 10, 25', '2021, 10, 26']
+
+    for i in range(len(data1)):
+        data.append({"x": date1[i], "y": data1[i]})
+
+    return JsonResponse(data, safe=False)
+
+def dg4data7(request) :
+
+    data = []
+
+
+    data1 = [0.079816328, 0.0213168518, 0.1004901064, 0.3011716791, 0.53008148161, 0.00311483803, 0.090287909]
+
+    date1 = ['2021, 10, 20', '2021, 10, 21', '2021, 10, 22', '2021, 10, 23',
+             '2021, 10, 24', '2021, 10, 25', '2021, 10, 26']
+
+    for i in range(len(data1)):
+        data.append({"x": date1[i], "y": data1[i]})
+
+    return JsonResponse(data, safe=False)
+
+
+
 
 
 def index(request):
