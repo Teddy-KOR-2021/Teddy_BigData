@@ -62,10 +62,10 @@ def dg3(request) :
 def dg3data(request) :
     data = []
 
-    data1 = [0.99816328, 0.00013168518, 0.00004901064, 0.0011716791, 0.00008148161, 0.00011483803, 0.000287909]
+    data1 = [0.99816328, 0.79816328, 0.00013168518, 0.00004901064, 0.0011716791, 0.00008148161, 0.011483803, 0.0287909]
 
-    date1 = ['2021, 10, 20', '2021, 10, 21', '2021, 10, 22', '2021, 10, 23',
-                  '2021, 10, 24', '2021, 10, 25', '2021, 10, 26']
+    date1 = ['2021, 10, 20', '2021, 10, 20', '2021, 10, 21', '2021, 10, 22', '2021, 10, 23',
+                  '2021, 10, 24', '2021, 10, 26', '2021, 10, 26']
 
     for i in range(len(data1)):
         data.append({"x": date1[i], "y": data1[i]})
@@ -181,8 +181,6 @@ def dg4data7(request) :
 
 
 
-
-
 def index(request):
     sentiment = Sentiment.objects.values()
     sentiment_json = json.dumps(list(sentiment), cls=DjangoJSONEncoder)
@@ -194,3 +192,18 @@ def index(request):
 
 def dg5(request) :
     return render(request, 'test5.html', None)
+
+def dg6(request) :
+    return render(request, 'test6.html', None)
+
+def dg6data(request):
+
+    data = []
+    result = [0.079816328, 0.0213168518, 0.1004901064, 0.3011716791, 0.53008148161, 0.00311483803, 0.090287909]
+    senti = ['Anger', 'Disgust', 'Fear', 'Happy',
+             'Sad', 'Surprise', 'Neutral']
+
+    for i in range(len(senti)):
+        data.append({"label": senti[i], "y": result[i]})
+
+    return JsonResponse(data, safe=False)
